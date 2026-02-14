@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Beautiful Girl 💕</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #2a004f, #0f001f);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Intro Screen */
+.intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    z-index: 10;
+    animation: fadeOutIntro 3s forwards;
+    animation-delay: 2s;
+}
+
+@keyframes fadeOutIntro {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.container {
+    opacity: 0;
+    animation: fadeInMain 3s forwards;
+    animation-delay: 3s;
+    padding-top: 40px;
+}
+
+@keyframes fadeInMain {
+    to { opacity: 1; }
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Big Photo */
+.photo-container {
+    width: 600px;
+    height: 600px;
+    margin: 0 auto 30px auto;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(255, 0, 120, 0.4);
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoomEffect 10s infinite alternate ease-in-out;
+}
+
+@keyframes zoomEffect {
+    from { transform: scale(1); }
+    to { transform: scale(1.06); }
+}
+
+/* Love Message */
+.love-box {
+    width: 65%;
+    margin: 0 auto 30px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* Ending */
+.ending {
+    width: 60%;
+    margin: 30px auto 60px auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Final Black Screen */
+.black-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+/* Final Message */
+.final-message {
+    font-size: 70px;
+    font-weight: bold;
+    color: #ff4b8b;
+    text-shadow: 0 0 20px #ff4b8b,
+                 0 0 40px #ff0080,
+                 0 0 60px #ff0080;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="intro">
+    For The Most Beautiful Girl In My Life 💕
+</div>
+
+<div class="container" id="mainContent">
+
+<h1>You Are My Everything 💕</h1>
+
+<div class="photo-container">
+    <img id="slideshow" src="img 1.jpeg">
+</div>
+
+<div class="love-box">
+Being away from you is not easy for me. There are so many moments when I wish you were right here next to me —  
+to share small things, random laughs, simple silence.  
+
+But even in this distance, my feelings for you have only grown stronger.  
+You’ve become such an important part of my life that I can’t imagine my days without you.  
+
+No matter how many miles are between us, my heart has already chosen you —  
+and it will keep choosing you, every single day. 💕
+</div>
+
+<div class="ending">
+I am grateful for you. I am proud of you.  
+And I choose you… every single day.  
+
+<br><br>
+<strong>Forever Yours,</strong><br>
+Kums 💕
+</div>
+
+</div>
+
+<!-- Final Black Screen -->
+<div class="black-screen" id="blackScreen">
+    <div class="final-message">
+        I LOVE YOU 💕
+    </div>
+</div>
+
+<audio id="bgMusic">
+  <source src="song.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+/* Slideshow */
+var images = ["img 1.jpeg", "img 2.jpeg", "img 3.jpeg", "img 4.jpeg", "img 5.jpeg", "img 6.jpeg", "img 7.jpeg", "img 8.jpeg", "img 9.jpeg", "img 10.jpeg", "img 11.jpeg", "img 12.jpeg",];
+var i = 0;
+
+function slideShow() {
+    i++;
+    if(i >= images.length) i = 0;
+    document.getElementById("slideshow").src = images[i];
+}
+setInterval(slideShow, 5000);
+
+/* Play Music Once */
+var music = document.getElementById("bgMusic");
+music.play();
+
+/* When Music Ends */
+music.onended = function() {
+
+    // Hide everything
+    document.getElementById("mainContent").style.display = "none";
+
+    // Show black screen
+    document.getElementById("blackScreen").style.display = "flex";
+
+    // After 5 seconds, close page or make it blank
+    setTimeout(function() {
+        window.open('', '_self').close();
+        window.location.href = "about:blank";
+    }, 5000);
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Jaanu 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e1e2f, #3a0ca3);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Glowing Title */
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    margin-top: 100px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+/* Buttons */
+button {
+    padding: 15px 35px;
+    font-size: 18px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: #ff4b5c;
+    color: white;
+    box-shadow: 0 0 15px #ff4b5c;
+}
+
+#yesBtn:hover {
+    transform: scale(1.1);
+}
+
+#noBtn {
+    background: white;
+    color: #ff4b5c;
+    position: absolute;
+}
+
+/* Love Letter */
+#letter {
+    display: none;
+    margin-top: 30px;
+    font-size: 22px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: white;
+    color: #3a0ca3;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine’s Day Kutty maa😘💕</h1>
+<p class="subtitle">Even miles apart… you are my forever.</p>
+
+<h2>Will you be my Valentine? 💖</h2>
+
+<button id="yesBtn" onclick="yesClick()">Yes 😍</button>
+<button id="noBtn" onmouseover="moveNo()">No 😜</button>
+
+<div id="letter">
+    Thangameyy 💕<br><br>
+    love u so much di Pondatii🫂💋💕  
+</div>
+
+<div class="popup" id="popup">
+     Miss You So Much🥺💕<br><br>
+    <button onclick="closePopup()">Close 💖</button>
+</div>
+
+<script>
+function yesClick() {
+    document.getElementById("letter").style.display = "block";
+    setTimeout(function() {
+        window.location.href = "jaanu2.html";
+    }, 5000);
+}
+
+
+function moveNo() {
+    var btn = document.getElementById("noBtn");
+    btn.style.left = Math.random() * window.innerWidth + "px";
+    btn.style.top = Math.random() * window.innerHeight + "px";
+}
+
+/* Floating hearts */
+function createHeart() {
+    var heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💕";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 4 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
+}
+setInterval(createHeart, 400);
+
+/* Auto Popup */
+setTimeout(() => {
+    document.getElementById("popup").classList.add("active");
+}, 4000);
+
+function closePopup() {
+    document.getElementById("popup").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
